@@ -1,0 +1,3 @@
+.chat {max-width: 360px; margin: 20px auto; padding: 10px; background-color: #f2f2f2;}
+.message {background-color: white; padding: 10px; margin-bottom: 8px; border-radius: 10px; white-space:pre-wrap; overflow-wrap: break-word; line-break: anywhere;
+         max-width: 100%; /*message elementi, ebeveyn olan chat elementinin genişliğini geçemez*/}
