@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Grid</title>
+    <style>
+        .container {background-color: pink; display: grid; grid-template-columns: 1fr 1fr 1fr; gap:1em;}
+        .box {background-color: burlywood; margin:5px; padding:5px; text-align: center;}
+
+        @media screen and (max-width: 600px) {
+            .container {grid-template-columns: 1fr;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">Kutu 1</div>
+        <div class="box">Kutu 2</div>
+        <div class="box">Kutu 3</div>
+    </div>
+</body>
+</html>
