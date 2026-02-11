@@ -1,0 +1,8 @@
+body {background-color: rgb(14, 13, 13); color:white; font-family: Arial, Helvetica, sans-serif;}
+body::-webkit-scrollbar {display: none;}
+header {display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: 1fr; gap: 3%; align-items: center; height: auto; min-height: 80px; padding: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.404);}
+.logo,.banner,.social {text-align: center;}
+.banner {font-size: 170%;}
+.logo {justify-self: left; cursor: pointer; padding-left: 20px;}
+.social {background-color: #3a3535; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: 2.9em;}
+.social a img {display: block; max-height: 20px; width: auto;}
