@@ -1,0 +1,54 @@
+body {background-color: rgb(14, 13, 13); font-family: Arial, Helvetica, sans-serif;}
+body::-webkit-scrollbar {display: none;}
+header {display: flex; justify-content: space-between; align-items: center; margin-right:1%; margin-left:1%; margin-bottom:1%;}
+.logo {padding-left: 1.0em; cursor: pointer; }
+.banner {color:white; display: block; font-size:170%; margin: 2%;}
+.social {background: #3a3535; width:16.2%; display:flex; align-items: center; justify-content:space-between; border:none; box-sizing: border-box; height:40px;} 
+.social a img {display: block; max-height: 20px; width: auto;}
+.social a { padding:10px;}
+.social a:hover {background-color:#916e50; transition: 0.3s ease-in-out;}
+header .social button {padding:5%; height: 2.9em; border:none; background-color:#916e50; color:#fff; text-align: center;}
+header .social button:hover {cursor: pointer;}
+nav {border-top: 1px solid white;}
+nav li {display: inline; }
+nav ul {list-style-type: none; padding-left: 0px;}
+nav li a {text-decoration: none; color:white; text-transform: uppercase; text-align: center; padding: 1%; padding-right:1.7em; padding-left:1.7em;}
+nav li a:hover {background-color:#916e50; cursor:pointer; transition: 0.3s ease-in-out;}
+.banner {position: relative; overflow: hidden; max-height: 74vh; margin: 0px; padding: 0px;}
+.banner-image { width: 100%; height: 100%;object-fit: cover; object-position: center; display: block;}
+.banner-text {position: absolute; bottom:75px; background-color: rgba(0,0,0,0.6); color:#968d8d; padding:23px; font-size: 16px; width:330px; text-align: center;}
+.first-news {display: flex; height:78vh;}
+.first {position: relative;  overflow: hidden; height: 78vh; width: 85vw; margin: 0px; padding: 0px;}
+.first-image {width: 100%; height: 100%; object-fit: cover;  object-position: center; margin:1%;}
+.first span {position:absolute; color:#916e50; background-color: rgba(0,0,0,0.6); margin:0; padding:20px; display: block; width:9.6em; font-size: 200%; top:0px; right:0px; font-weight: 700;}
+.first span:hover {cursor: pointer; background-color: rgba(0,0,0,0.8); transition: 0.4s;}
+.news {width: 35%; padding: 10px; box-sizing: border-box; color: white;}
+.news-title {display: block; font-size: 1.5em; margin-bottom: 15px; padding: 15px; background: rgba(145, 110, 80, 0.25);}
+.news-title:hover {background-color: #fff; color:#916e50; transition: 0.4s; cursor:pointer;}
+.news-list {display: flex; flex-direction: column;}
+.news-item {display: flex; align-items: center; gap: 10px; padding: 10px 0 25px 0;border-bottom: 0.1px solid white;}
+.news-item:hover {cursor:pointer; border-bottom: 0.1px solid #916e50;}
+.news-item img {width: 107px; height: 80px; object-fit: cover;}
+.news-item p {margin: 0; font-size: 1.2em; color: #fff; }
+.news-item p:hover {transition: 0.2 fghjs; color:#916e50;}
+.second {display:flex; margin:0.7%;}
+.map {width:700px; margin:0.7%;}
+.map img {width: 100%; height: 97%; object-fit: cover;  object-position: center;}
+.video iframe {width:770px; height:390px ; margin:1.3%;}
+.third {display:flex; justify-content:space-between; padding:0px 30px; color:#848484; font-size:90%;}
+.third h1 {color:#916e50; font-size:130%; font-weight:400;}
+.siteMapNav {display:flex;}
+.siteMap ul {padding-right:30px; list-style: none; color:#848484; font-size:90}
+.siteMap li {padding:0.2em;}
+.siteMap li:hover {color:#916e50; transition: 0.4s; cursor:pointer;}
+.followUs {text-align:center;}
+.followUs a {display:inline-block; margin:15px; color:#848484;}
+.followUs a:hover {color:#916e50;}
+footer {border-top:1px solid #848484;height:35px;display:flex;justify-content:space-between;align-items:center;}
+.copyright {padding:0 10px;font-size:90%;color:#848484;}
+.copyright span {margin-right:10px;}
+.copyright a {padding:0 10px;border-left:1px solid #848484;color:#848484;}
+.copyright a:hover {color:#916e50;}
+.signatures {padding:0 10px;}
+.signatures a {opacity:.5;height:25px;display:block;}
+.signatures a:hover {opacity:1;}
