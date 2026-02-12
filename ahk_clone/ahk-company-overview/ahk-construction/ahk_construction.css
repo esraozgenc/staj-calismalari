@@ -8,4 +8,9 @@ header {display: grid; grid-template-columns: auto 1fr auto; grid-template-rows:
 .social img {height: 1.5em; }
 .social a {padding: 5px 10px 5px 10px;}
 .social a:hover {background-color:#916e50; transition: 0.3s ease-in-out;}
-button {cursor: pointer; border:none; height: 2.9em; background-color:#916e50; color:#fff; text-align: center; padding: 5%;}
+button {border:none; height: 2.9em; background-color:#916e50; color:#fff; text-align: center; padding: 5%;}
+button:hover {cursor: pointer;}
+nav li {display: inline;}
+nav ul {padding: 0px;}
+nav li a {text-decoration: none; color:white; text-align: center; padding: 1%; padding-right:1.7em; padding-left:1.7em;}
+nav li a:hover {background-color:#916e50; cursor:pointer; transition: 0.3s ease-in-out;}
