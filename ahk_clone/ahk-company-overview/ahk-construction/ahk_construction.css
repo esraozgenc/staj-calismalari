@@ -10,7 +10,18 @@ header {display: grid; grid-template-columns: auto 1fr auto; grid-template-rows:
 .social a:hover {background-color:#916e50; transition: 0.3s ease-in-out;}
 button {border:none; height: 2.9em; background-color:#916e50; color:#fff; text-align: center; padding: 5%;}
 button:hover {cursor: pointer;}
+nav {border-bottom: 1px solid rgba(255, 255, 255, 0.404);}
 nav li {display: inline;}
 nav ul {padding: 0px;}
 nav li a {text-decoration: none; color:white; text-align: center; padding: 1%; padding-right:1.7em; padding-left:1.7em;}
 nav li a:hover {background-color:#916e50; cursor:pointer; transition: 0.3s ease-in-out;}
+main {display: grid; grid-template-columns: 1fr 1fr;}
+main .photos img {width:770px; height:500px; object-fit:cover;}
+footer {border-top:1px solid  rgba(255, 255, 255, 0.404); height:35px; display:flex; justify-content:space-between; align-items:center;}
+.copyright {padding:0 10px;font-size:90%;color:#848484;}
+.copyright span {margin-right:10px;}
+.copyright a {padding:0 10px;border-left:1px solid #848484;color:#848484;}
+.copyright a:hover {color:#916e50;}
+.signatures {padding:0 10px;}
+.signatures a {opacity:.5;height:25px;display:block;}
+.signatures a:hover {opacity:1;}
