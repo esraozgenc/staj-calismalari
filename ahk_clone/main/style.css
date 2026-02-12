@@ -1,6 +1,6 @@
 body {background-color: rgb(14, 13, 13); font-family: Arial, Helvetica, sans-serif;}
 body::-webkit-scrollbar {display: none;}
-header {display: flex; justify-content: space-between; align-items: center; margin-right:1%; margin-left:1%; margin-bottom:1%;}
+header {display: flex; justify-content: space-between; align-items: center; margin-right:1%; margin-left:1%; margin-bottom:1%; border-bottom: 1px solid rgba(255, 255, 255, 0.404); padding-bottom: 13px;}
 .logo {padding-left: 1.0em; cursor: pointer; }
 .banner {color:white; display: block; font-size:170%; margin: 2%;}
 .social {background: #3a3535; width:16.2%; display:flex; align-items: center; justify-content:space-between; border:none; box-sizing: border-box; height:40px;} 
@@ -9,7 +9,6 @@ header {display: flex; justify-content: space-between; align-items: center; marg
 .social a:hover {background-color:#916e50; transition: 0.3s ease-in-out;}
 header .social button {padding:5%; height: 2.9em; border:none; background-color:#916e50; color:#fff; text-align: center;}
 header .social button:hover {cursor: pointer;}
-nav {border-top: 1px solid white;}
 nav li {display: inline; }
 nav ul {list-style-type: none; padding-left: 0px;}
 nav li a {text-decoration: none; color:white; text-transform: uppercase; text-align: center; padding: 1%; padding-right:1.7em; padding-left:1.7em;}

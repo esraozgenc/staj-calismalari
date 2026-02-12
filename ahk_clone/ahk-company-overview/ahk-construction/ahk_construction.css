@@ -1,8 +1,11 @@
-body {background-color: rgb(14, 13, 13); color:white; font-family: Arial, Helvetica, sans-serif;}
+body {background-color: rgb(14, 13, 13); color:white; font-family: Arial, Helvetica, sans-serif; margin:0px;}
 body::-webkit-scrollbar {display: none;}
-header {display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: 1fr; gap: 3%; align-items: center; height: auto; min-height: 80px; padding: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.404);}
+header {display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: 125px; gap: 3%; align-items: center; height: auto; min-height: 80px; padding-bottom: 5px; border-bottom: 1px solid rgba(255, 255, 255, 0.404); margin-left: 20px; margin-right: 20px;}
 .logo,.banner,.social {text-align: center;}
 .banner {font-size: 170%;}
-.logo {justify-self: left; cursor: pointer; padding-left: 20px;}
-.social {background-color: #3a3535; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: 2.9em;}
-.social a img {display: block; max-height: 20px; width: auto;}
+.logo {justify-self: left; cursor: pointer; padding-left: 10px;}
+.social {background-color: #3a3535; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: 2.5em; align-items: center;}
+.social img {height: 1.5em; }
+.social a {padding: 5px 10px 5px 10px;}
+.social a:hover {background-color:#916e50; transition: 0.3s ease-in-out;}
+button {cursor: pointer; border:none; height: 2.9em; background-color:#916e50; color:#fff; text-align: center; padding: 5%;}
