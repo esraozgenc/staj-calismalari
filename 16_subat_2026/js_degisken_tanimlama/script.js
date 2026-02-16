@@ -43,3 +43,7 @@ const user = {username : "esra", password: "1234"} //obje tanımlama yaptık
 user.username = "esraozgenc"
 //ancak objenin icindeki değişkenlerin değerini değiştirebilirsin.
 console.log(user)
+
+//boolean tanımlarken: is/has kullanımı
+let isActive = true
+let hasPassword = false
