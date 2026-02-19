@@ -16,13 +16,13 @@ nav ul {padding: 0px;}
 nav li a {text-decoration: none; color:white; text-align: center; padding: 1%; padding-right:1.7em; padding-left:1.7em;}
 nav li a:hover {background-color:#916e50; cursor:pointer; transition: 0.3s ease-in-out;}
 main.brands-container {flex: 1; display: flex; justify-content: center; align-items: center; gap: 60px; padding: 40px; overflow-y: auto;}
-main.brands-container::-webkit-scrollbar { display: none; }
-.brand-item { position: relative; width: 420px; aspect-ratio: 17 / 9; overflow: hidden; cursor: pointer; }
-.brand-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: grayscale(100%) brightness(70%); transition: filter 0.4s ease; }
-.brand-item:hover .brand-bg { filter: grayscale(0%) brightness(100%); }
-.brand-logo { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; z-index: 2; }
-.brand-logo img { max-width: 70%; }
-.brand-item::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+main.brands-container::-webkit-scrollbar {display: none;}
+.brand-item {position: relative; width: 420px; aspect-ratio: 17 / 9; overflow: hidden; cursor: pointer;}
+.brand-bg {position: absolute; inset: 0; background-size: cover; background-position: center; filter: grayscale(100%) brightness(70%); transition: filter 0.4s ease;}
+.brand-item:hover .brand-bg {filter: grayscale(0%) brightness(100%);}
+.brand-logo {position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; z-index: 2;}
+.brand-logo img {max-width: 70%; }
+.brand-item::after {content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.4);}
 footer {border-top:1px solid  rgba(255, 255, 255, 0.404); height:35px; display:flex; justify-content:space-between; align-items:center;}
 .copyright {padding:0 10px;font-size:90%;color:#848484;}
 .copyright span {margin-right:10px;}
