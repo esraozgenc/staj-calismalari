@@ -1,0 +1,34 @@
+body {background-color: #161616; color:white; font-family: Arial, Helvetica, sans-serif; margin:0px; height: 100vh; overflow: hidden; display: flex; flex-direction: column;}
+body::-webkit-scrollbar {display: none;}
+header {display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: 125px; gap: 3%; align-items: center; height: auto; min-height: 80px; padding-bottom: 5px; border-bottom: 1px solid rgba(255, 255, 255, 0.404); margin-left: 20px; margin-right: 20px;}
+.logo,.banner,.social {text-align: center;}
+.banner {font-size: 170%;}
+.logo {justify-self: left; cursor: pointer; padding-left: 10px;}
+.social {background-color: #3a3535; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: 2.5em; align-items: center;}
+.social img {height: 1.5em; }
+.social a {padding: 5px 10px 5px 10px;}
+.social a:hover {background-color:#916e50; transition: 0.3s ease-in-out;}
+button {border:none; height: 2.9em; background-color:#916e50; color:#fff; text-align: center; padding: 5%;}
+button:hover {cursor: pointer;}
+nav {border-bottom: 1px solid rgba(255, 255, 255, 0.404);}
+nav li {display: inline;}
+nav ul {padding: 0px;}
+nav li a {text-decoration: none; color:white; text-align: center; padding: 1%; padding-right:1.7em; padding-left:1.7em;}
+nav li a:hover {background-color:#916e50; cursor:pointer; transition: 0.3s ease-in-out;}
+main {display: grid; grid-template-columns: 1fr 1fr; flex: 1; overflow-y:scroll;}
+main::-webkit-scrollbar {display: none;}
+main .photos {justify-self: center; align-self: center;}
+article {font-family: 'Nunito', sans-serif;  margin-left:30px; margin-right: 30px; overflow-y: auto;}
+article::-webkit-scrollbar {display: none;}
+article h1 {font-size:50px; color: #916e50; margin: 25px; margin-top:40px; font-weight:600;}
+strong{margin:25px;}
+#p2 {margin-top:0px; margin-bottom: 0px;}
+article p {font-size:17px; font-weight: 500; margin:25px; text-align: justify;}
+footer {border-top:1px solid  rgba(255, 255, 255, 0.404); height:35px; display:flex; justify-content:space-between; align-items:center;}
+.copyright {padding:0 10px;font-size:90%;color:#848484;}
+.copyright span {margin-right:10px;}
+.copyright a {padding:0 10px;border-left:1px solid #848484;color:#848484;}
+.copyright a:hover {color:#916e50;}
+.signatures {padding:0 10px;}
+.signatures a {opacity:.5;height:25px;display:block;}
+.signatures a:hover {opacity:1;}
