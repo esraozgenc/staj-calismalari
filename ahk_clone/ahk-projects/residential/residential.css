@@ -14,7 +14,7 @@ button:hover {cursor: pointer;}
 nav {border-bottom: 1px solid rgba(255, 255, 255, 0.404);}
 nav li {display: inline;}
 nav ul {padding: 0px;}
-nav li a {text-decoration: none; color:white; text-align: center; padding-right:1.7em; padding-left:1.7em;}
+nav li a {text-decoration: none; color:white; text-align: center; padding: 1%; padding-right:1.7em; padding-left:1.7em;}
 nav li a:hover {background-color:#916e50; cursor:pointer; transition: 0.3s ease-in-out;}
 main{font-family: 'Nunito', sans-serif; max-width:1400px; padding: 0 25px 70px 40px;}
 main h1 {font-size:49px; font-weight: 200; margin-bottom:40px; color:#916e50;}
