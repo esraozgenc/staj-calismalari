@@ -1,0 +1,37 @@
+body {background-color: #161616; color:white; font-family: Arial, Helvetica, sans-serif; margin:0px; height: 100vh; display: flex; flex-direction: column;}
+body::-webkit-scrollbar {display: none;}
+header {display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: 125px; gap: 3%; align-items: center; height: auto; min-height: 120px; margin-left: 20px; margin-right: 20px;}
+.solid {border-bottom: 1px solid rgba(255, 255, 255, 0.404);}
+.logo,.banner,.social {text-align: center;}
+.banner {font-size: 170%;}
+.logo {justify-self: left; cursor: pointer; padding-left: 10px;}
+.social {background-color: #3a3535; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: 2.5em; align-items: center;}
+.social img {height: 1.5em; }
+.social a {padding: 5px 10px 5px 10px;}
+.social a:hover {background-color:#916e50; transition: 0.3s ease-in-out;}
+button {border:none; height: 2.9em; background-color:#916e50; color:#fff; text-align: center; padding: 5%;}
+button:hover {cursor: pointer;}
+nav {border-bottom: 1px solid rgba(255, 255, 255, 0.404);}
+nav li {display: inline;}
+nav ul {padding: 0px;}
+nav li a {text-decoration: none; color:white; text-align: center; padding-right:1.7em; padding-left:1.7em;}
+nav li a:hover {background-color:#916e50; cursor:pointer; transition: 0.3s ease-in-out;}
+main{font-family: 'Nunito', sans-serif; max-width:1400px; padding: 0 25px 70px 40px;}
+main h1 {font-size:49px; font-weight: 200; margin-bottom:40px; color:#916e50;}
+.projectsList{display:grid;grid-template-columns: repeat(auto-fit, minmax(350px,1fr));gap:17px;}
+.projectsList section {display:flex; align-items:flex-end; gap:15px; margin-bottom: 30px;}
+.right {border-right: 1px solid #848484;}
+.projectsList img{width:170px; height:115px; display:block; object-fit: cover;filter: grayscale(100%); transition: ease 1s;}
+.projectsList img:hover{filter: grayscale(0%);}
+.projectsList article{display:flex; flex-direction:column; width:180px;}
+.projectsList article strong{font-size:16px; margin-bottom:10px; color:#916e50; width: 200px;}
+.projectsList article span{display:flex; flex-direction:column;}
+.projectsList article p{margin:1.5px; font-size:12px;}
+footer {border-top:1px solid  rgba(255, 255, 255, 0.404); height:30px; display:flex; justify-content:space-between; align-items:center;}
+.copyright {padding:0 10px;font-size:80%;color:#848484;}
+.copyright span {margin-right:10px;}
+.copyright a {padding:0 10px;border-left:1px solid #848484;color:#848484;}
+.copyright a:hover {color:#916e50;}
+.signatures {padding:0 10px;}
+.signatures a {opacity:.5;height:25px;display:block;}
+.signatures a:hover {opacity:1;}
