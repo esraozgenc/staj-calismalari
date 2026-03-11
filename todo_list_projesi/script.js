@@ -1,7 +1,7 @@
 const form = document.querySelector("#todoAddForm")
 const addInput = document.querySelector("#todoName")
 const todoList = document.querySelector(".list-group")
-
+const firstCardBody = document.querySelectorAll(".card-body")[0]
 let todos = []
 
 runEvents()
@@ -14,11 +14,12 @@ function addTodo(e){
     const inputText = addInput.value.trim() //inputun içine yazılan değeri al ve kenarlarındaki fazla boşukları sil.
 
     if(inputText == null || inputText == ""){ //eğer inputun içine bir şey yazılmadıysa uyarı ver
-        alert ("Lütfen bir todo giriniz!")
+        showAlert("warning", "Lütfen boş bırakmayınız!")
     }
     else{//inputun içine bir şey yazıldıysa arayüze ve local storage'a ekle
         addTodoToUl(inputText) //arayüze todo ekleme metodu
         addTodoToStorage(inputText) //local storage'a todo ekleme metodu
+        showAlert("success", "Todo eklendi!")
     }
 
     e.preventDefault() //submit butonunun varsayılan değerini engelle
@@ -55,4 +56,22 @@ function checkTodosFromStorage(){
     else{
         todos = JSON.parse(localStorage.getItem("todos")) //-todos diye bir key varsa array olarak todos'a ekle
     }
+}
+
+function showAlert(type, message){//-todonun başarılı bir şekilde eklendiğini veya boş bırakıldığını gösteren uyarı
+    /*//boostrap'den uyarı vermek için bir kalıp aldık. Bu örneğe göre bir div oluşturacağız.
+    <div class="alert alert-warning" role="alert">This is a warning alert-check it out!</div>
+    */
+    const div = document.createElement("div")
+    div.className = "alert alert-"+type //uyarının tipi(warning,succsess,danger) dinamik olması için bu şekilde tanımladık
+    //div.className = `alert alert-${type}` //literal template ile de yazabilirsin ` (backtick) yaparken alt tuşuna basılı tut ve numlock'dan 96'ya bas.
+    div.textContent = message //verilecek uyarının içindeki mesajı da dinamik yaptık
+
+    firstCardBody.appendChild(div)
+
+    setTimeout(function(){//belli bir süre sonra uyarının kalkmasını sağlamak için setTimeout kullandık
+        div.remove()
+    },3500)//3 buçuk saniye sonra kalkacak
+
+
 }
