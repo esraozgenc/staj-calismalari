@@ -22,7 +22,7 @@ main h1 {font-size:49px; font-weight: 200; margin-bottom:40px; color:#916e50;}
 .projectsList section {display:flex; align-items:flex-end; gap:15px; margin-bottom: 30px;}
 .right {border-right: 1px solid #848484;}
 .projectsList img{width:170px; height:115px; display:block; object-fit: cover;filter: grayscale(100%); transition: ease 1s;}
-.projectsList img:hover{filter: grayscale(0%);}
+.projectsList img:hover{filter: grayscale(0%); cursor: zoom-in;}
 .projectsList article{display:flex; flex-direction:column; width:180px;}
 .projectsList article strong{font-size:16px; margin-bottom:10px; color:#916e50; width: 200px;}
 .projectsList article span{display:flex; flex-direction:column;}
