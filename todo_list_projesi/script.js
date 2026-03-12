@@ -8,8 +8,15 @@ runEvents()
 
 function runEvents(){
     form.addEventListener("submit",addTodo) //form'da submit butonuna basıldığında addTodo metodunu uygula
+    document.addEventListener("DOMContentLoaded",pageLoaded) //sayfa yüklendiğinde local storage'dan verileri arayüze yazdırma işlemi
 }
 
+function pageLoaded(){
+    checkTodosFromStorage()
+    todos.forEach(function(todo){
+        addTodoToUl(todo)
+    })
+}
 function addTodo(e){
     const inputText = addInput.value.trim() //inputun içine yazılan değeri al ve kenarlarındaki fazla boşukları sil.
 
@@ -72,6 +79,4 @@ function showAlert(type, message){//-todonun başarılı bir şekilde eklendiği
     setTimeout(function(){//belli bir süre sonra uyarının kalkmasını sağlamak için setTimeout kullandık
         div.remove()
     },3500)//3 buçuk saniye sonra kalkacak
-
-
 }
