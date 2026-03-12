@@ -20,12 +20,28 @@ function pageLoaded(){
     })
 }
 
-function removeTodoToUI(e){
-    if(e.target.className === "fa fa-remove"){
+function removeTodoToUI(e){//-todoyu silme işlemi
+    
+    if(e.target.className === "fa fa-remove"){ //i etiketine basarsa i'nin ananesi olan li'yi sil.
+        //arayüzden silme
         const todo = e.target.parentElement.parentElement
         todo.remove()
+
+        //storage'dan silme
+        removeTodoToStorage(todo.textContent) //arayüzden silinen todo'nun text contentine uygulanacak metot
         showAlert("success", "Todo başarıyla silindi")
     }
+}
+
+function removeTodoToStorage(removeTodo){
+    checkTodosFromStorage() //storage'da ki todoları aldık
+    todos.forEach(function(todo,index){ //dizide tüm todo'nun hangi indeksi olduğunu ve tüm todo'yu dönderir
+        if(removeTodo===todo){//arayüzden silinen todo, todosların içinde var ise(hem indeksini hem todo'yu verir bize)
+            todos.splice(index,1)//Belirtilen indeksten başla(silinecek todo'nun indeksini aldık if ile) ve 1 tane elemanı sil
+            //bir diziden eleman silmek için splice metodunu kullanıyoruz.
+        } 
+    })
+    localStorage.setItem("todos",JSON.stringify(todos)) //güncel todos'u storage'a dizi görünümde ekledik.
 }
 
 function addTodo(e){
