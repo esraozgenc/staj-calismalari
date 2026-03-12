@@ -2,21 +2,32 @@ const form = document.querySelector("#todoAddForm")
 const addInput = document.querySelector("#todoName")
 const todoList = document.querySelector(".list-group")
 const firstCardBody = document.querySelectorAll(".card-body")[0]
+const secondCardBody = document.querySelectorAll(".card-body")[1]
 let todos = []
 
 runEvents()
 
 function runEvents(){
-    form.addEventListener("submit",addTodo) //form'da submit butonuna basıldığında addTodo metodunu uygula
+    form.addEventListener("submit",addTodo) //form'da submit butonuna basıldığında addTodo metodunu uygUIa
     document.addEventListener("DOMContentLoaded",pageLoaded) //sayfa yüklendiğinde local storage'dan verileri arayüze yazdırma işlemi
+    secondCardBody.addEventListener("click", removeTodoToUI)
 }
 
 function pageLoaded(){
     checkTodosFromStorage()
     todos.forEach(function(todo){
-        addTodoToUl(todo)
+        addTodoToUI(todo)
     })
 }
+
+function removeTodoToUI(e){
+    if(e.target.className === "fa fa-remove"){
+        const todo = e.target.parentElement.parentElement
+        todo.remove()
+        showAlert("success", "Todo başarıyla silindi")
+    }
+}
+
 function addTodo(e){
     const inputText = addInput.value.trim() //inputun içine yazılan değeri al ve kenarlarındaki fazla boşukları sil.
 
@@ -24,15 +35,15 @@ function addTodo(e){
         showAlert("warning", "Lütfen boş bırakmayınız!")
     }
     else{//inputun içine bir şey yazıldıysa arayüze ve local storage'a ekle
-        addTodoToUl(inputText) //arayüze todo ekleme metodu
+        addTodoToUI(inputText) //arayüze todo ekleme metodu
         addTodoToStorage(inputText) //local storage'a todo ekleme metodu
         showAlert("success", "Todo eklendi!")
     }
 
-    e.preventDefault() //submit butonunun varsayılan değerini engelle
+    e.preventDefaUIt() //submit butonunun varsayılan değerini engelle
 }
 
-function addTodoToUl(newTodo){ //arayüze ekleme metodu
+function addTodoToUI(newTodo){ //arayüze ekleme metodu
     const li = document.createElement("li") //inputa bir değer girildiğinde li elementi oluştur ve attribute oluştur
     li.className = "list-group-item d-flex justify-content-between"
     li.textContent = newTodo //inputa yazılan değeri li'nin text contenti yap
@@ -46,7 +57,7 @@ function addTodoToUl(newTodo){ //arayüze ekleme metodu
 
     a.appendChild(i)
     li.appendChild(a)
-    todoList.appendChild(li) //bu elementleri ul'nin içine yerleştir
+    todoList.appendChild(li) //bu elementleri UI'nin içine yerleştir
 
     addInput.value = "" //butona basıldıktan sonra inputun içindeki yazıyı temizle
 }
@@ -76,7 +87,7 @@ function showAlert(type, message){//-todonun başarılı bir şekilde eklendiği
 
     firstCardBody.appendChild(div)
 
-    setTimeout(function(){//belli bir süre sonra uyarının kalkmasını sağlamak için setTimeout kullandık
+    setTimeout(function(){//belli bir süre sonra uyarının kalkmasını sağlamak için setTimeout kUIlandık
         div.remove()
     },3500)//3 buçuk saniye sonra kalkacak
 }
