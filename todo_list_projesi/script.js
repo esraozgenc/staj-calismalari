@@ -3,6 +3,7 @@ const addInput = document.querySelector("#todoName")
 const todoList = document.querySelector(".list-group")
 const firstCardBody = document.querySelectorAll(".card-body")[0]
 const secondCardBody = document.querySelectorAll(".card-body")[1]
+const clearButton = document.querySelector("#todoClearButton")
 let todos = []
 
 runEvents()
@@ -10,7 +11,8 @@ runEvents()
 function runEvents(){
     form.addEventListener("submit",addTodo) //form'da submit butonuna basıldığında addTodo metodunu uygUIa
     document.addEventListener("DOMContentLoaded",pageLoaded) //sayfa yüklendiğinde local storage'dan verileri arayüze yazdırma işlemi
-    secondCardBody.addEventListener("click", removeTodoToUI)
+    secondCardBody.addEventListener("click", removeTodoToUI) //-todo silme işlemi
+    clearButton.addEventListener("click",allTodosEverywhere) //tüm todoları temizle
 }
 
 function pageLoaded(){
@@ -18,6 +20,22 @@ function pageLoaded(){
     todos.forEach(function(todo){
         addTodoToUI(todo)
     })
+}
+
+function allTodosEverywhere(){
+    const todoListesi = document.querySelectorAll(".list-group-item") //-todolar li'nin içinde olduğu için tüm li'leri seçtik
+    if(todoListesi.length>0){//eğer li varsa
+        //Ekrandan silme
+        todoListesi.forEach(function(todo){ //bu li elementlerinin üzerinde dön
+            todo.remove() //li elementlerini sil
+        })
+        //Storage'dan silme
+        todos=[] //-globaldeki todos'u boş diziye çevir
+        localStorage.setItem("todos",JSON.stringify(todos)) //boş diziyi, dizi görünümde storage'a ekle
+        showAlert("success","başarılı bir şekilde tüm todolar silindi")
+    }else{
+        showAlert("warning","Silmek için en az bir todo olmalıdır")
+    }
 }
 
 function removeTodoToUI(e){//-todoyu silme işlemi
