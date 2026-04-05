@@ -1,0 +1,14 @@
+body {font-family: 'Segoe UI', sans-serif; background-color: #f5f6f7; margin: 0px;}
+.header {display: flex; flex-direction: column;}
+.header-top {display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0px 30px; align-items: center; height: 130px;}
+.header-top a{text-decoration: none;}
+.header-top span{color:#0c416a; font-size: 40px; font-weight: bold; letter-spacing: 1px; text-align: center;}
+.logo img{width: 150px;}
+.user-actions {display: flex; justify-content: flex-end; gap: 19px;}
+.user-actions img {width: 50px; cursor: pointer; transition: transform 0.2s ease;}
+.user-actions img:hover {transform: scale(1.1);}
+.navbar {display: flex; justify-content: center; gap:150px; padding: 15px; margin:5px; border-bottom: 1px solid #e8ebed;}
+.navbar a {text-decoration: none; color:#000; font-size:20px; font-weight: 500; transition: color 0.3s; position: relative;}
+.navbar a:hover {color:#0c416a;}
+.navbar a::after {content: ""; position: absolute; left: 0; bottom: -5px; width: 0%; height: 2.5px; background-color: #0c416a; transition: width 0.3s;}
+.navbar a:hover::after {width: 100%;}
