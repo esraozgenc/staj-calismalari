@@ -11,8 +11,8 @@ function headerHTML(){
             <a href="/pixel_store/index.html">
                     <span>PIXEL</span>
             </a>
-
             <div class="user-actions">
+                <button class="language-btn">TR</button>
                 <a href="/pixel_store/pages/profile.html">
                     <img src="/pixel_store/assets/icons/profile.png">
                 </a>
@@ -22,10 +22,15 @@ function headerHTML(){
             </div>
         </div>
         <div class="navbar">
-            <a href="/pixel_store/pages/category-computer.html">BİLGİSAYAR</a>
-            <a href="/pixel_store/pages/category-tablet.html">TABLET</a>
-            <a href="/pixel_store/pages/category-phone.html">TELEFON</a>
-            <a href="/pixel_store/pages/category-tv.html">TELEVİZYON</a>
+            <div class="nav-links">
+                <a href="/pixel_store/pages/category-computer.html">BİLGİSAYAR</a>
+                <a href="/pixel_store/pages/category-tablet.html">TABLET</a>
+                <a href="/pixel_store/pages/category-phone.html">TELEFON</a>
+                <a href="/pixel_store/pages/category-tv.html">TELEVİZYON</a>
+            </div>
+            <div class="nav-search">
+                <input type="text" class="search-input" placeholder="Ürün ara...">
+            </div>
         </div>
     </header>
     `}
