@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Bilgisayar",
+        "slug": "computer"
+    },
+    {
+        "id": 2,
+        "name": "Tablet",
+        "slug": "tablet"
+    },
+    {
+        "id": 3,
+        "name": "Telefon",
+        "slug": "phone"
+    },
+    {
+        "id": 4,
+        "name": "Televizyon",
+        "slug": "tv"
+    }
+]
