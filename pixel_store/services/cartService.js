@@ -48,3 +48,5 @@ function decreaseQuantity(productId){
         removeFromCart(productId)
     }
 }
+
+export {getCart, saveCart, addToCart, removeFromCart, decreaseQuantity}

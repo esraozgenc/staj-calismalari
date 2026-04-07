@@ -19,3 +19,5 @@ async function getCategoryBySlug(slug) {
     const category = await getCategories()
     return category.find(item => item.slug === slug) || null
 }
+
+export{getCategories, getCategoryById, getCategoryBySlug}

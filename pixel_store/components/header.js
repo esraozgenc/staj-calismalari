@@ -1,4 +1,4 @@
-function headerHTML(){
+export function headerHTML(){
     return`
         <header>
         <div class="header-top">
@@ -34,5 +34,3 @@ function headerHTML(){
         </div>
     </header>
     `}
-
-document.querySelector("#header").innerHTML = headerHTML()

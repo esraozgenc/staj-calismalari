@@ -1,4 +1,4 @@
-function footerHTML(){
+export function footerHTML(){
     return`
     <footer>
         <div class="footer-brand">
@@ -26,5 +26,3 @@ function footerHTML(){
         </div>
     </footer>
     `}
-
-document.querySelector("#footer").innerHTML = footerHTML()

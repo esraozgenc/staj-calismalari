@@ -21,3 +21,5 @@ async function getProductsByCategory(categoryId) {
     const products = await getAllProducts()
     return products.filter(item => item.categoryId === categoryId)
 }
+
+export {getAllProducts, getProductById, getProductsByCategory}

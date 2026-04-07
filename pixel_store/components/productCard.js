@@ -1,4 +1,4 @@
-function productCardHTML(product){
+export function productCardHTML(product){
     return `
     <div class= "product-card">
         <img src="${product.image}" alt = "${product.name}">
@@ -8,5 +8,5 @@ function productCardHTML(product){
     </div>
     `}
 
-const container = document.querySelector("#product-card")
-products.forEach(product => {container.innerHTML += productCardHTML(product)});
+//const container = document.querySelector("#product-card")
+//products.forEach(product => {container.innerHTML += productCardHTML(product)});
