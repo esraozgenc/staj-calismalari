@@ -1,12 +1,13 @@
 export function productCardHTML(product){
     return `
     <div class= "product-card">
-        <img src="${product.image}" alt = "${product.name}">
-        <h3 class="title">${product.name}</h3>
-        <p class="product-price">${product.price} TL</p>
-        <button class="add-to-cart" data-id="${product.id}">Sepete Ekle</button>
+        <img src="${product.image}" alt = "${product.name}" class="product-image">
+
+        <div class="product-info">
+            <h3 class="product-title">${product.name}</h3>
+            <p class="product-description">${product.description}</p>
+            <p class="product-price">${product.price} TL</p>        
+            <button class="add-to-cart" data-id="${product.id}">Sepete Ekle</button>
+        </div>
     </div>
     `}
-
-//const container = document.querySelector("#product-card")
-//products.forEach(product => {container.innerHTML += productCardHTML(product)});

@@ -1,7 +1,7 @@
 //Tüm ürünleri getir
 async function getAllProducts(){
     try {
-        const response = await fetch("../data/products.json")
+        const response = await fetch("/pixel_store/data/products.json")
         const data = await response.json()
         return data
     } catch (err) {
