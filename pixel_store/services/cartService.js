@@ -2,7 +2,7 @@ const CART_KEY = "cart"
 
 //localstorage'dan mevcut verileri alalım
 function getCart(){
-    let rawData = localStorage.getItem(CART_KEY)
+    const rawData = localStorage.getItem(CART_KEY)
     if(rawData===null){
         return []
     }else{
@@ -12,11 +12,11 @@ function getCart(){
 
 //localstorage'a yeni veriyi kaydet
 function saveCart(cart){
-    let cartString = JSON.stringify(cart)
+    const cartString = JSON.stringify(cart)
     localStorage.setItem(CART_KEY, cartString)
 }
 
-//sepete(cart'a) ürün ekler/günceller
+//sepete ürün ekler veya adet sayısnı artırır
 function addToCart(productId){
     let cart = getCart()
     const existingItem = cart.find(item => item.productId === productId)
@@ -26,4 +26,25 @@ function addToCart(productId){
         cart.push({productId, "quantity": 1})
     }
     saveCart(cart)
+}
+
+//ürünü sepetten silmek
+function removeFromCart(productId){
+    let cart = getCart()
+    const filteredCart = cart.filter(item => item.productId !== productId) //item cart içindeki her ürün
+    saveCart(filteredCart)
+}
+
+//ürün adet sayısını azaltmak
+function decreaseQuantity(productId){
+    let cart = getCart()
+    const item = cart.find(item => item.productId === productId)
+    if(!item) return;
+
+    if(item.quantity >1){
+        item.quantity -= 1
+        saveCart(cart)
+    }else{
+        removeFromCart(productId)
+    }
 }
