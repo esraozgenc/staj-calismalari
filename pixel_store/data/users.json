@@ -3,6 +3,8 @@
     "id": 1,
     "name": "Esra Özgenç",
     "email": "esra@gmail.com",
-    "password": "123456"
+    "password": "123456",
+    "address": "Antalya, Muratpaşa",
+    "phone": "+90 555 555 55 55"
   }
 ]
