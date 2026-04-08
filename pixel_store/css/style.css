@@ -1,15 +1,16 @@
 html, body {height: 100%; margin: 0;}
 body {font-family: 'Segoe UI', sans-serif; background-color: #f5f6f7; display: flex; flex-direction: column; min-height: 100vh;}
+body::-webkit-scrollbar {display: none}
 .header {display: flex; flex-direction: column;}
 .header-top {display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0px 30px; align-items: center; height: 100px;}
 .header-top a{text-decoration: none;}
 .header-top span{color:#0c416a; font-size: 38px; font-weight: bold; letter-spacing: 1px;}
 .logo img{width: 150px;}
 .user-actions {display: flex; justify-content: flex-end; gap: 19px;}
-.user-actions img {width: 45px; cursor: pointer; transition: transform 0.2s ease;}
-.user-actions img:hover {transform: scale(1.1);}
+.user-actions img {width: 45px; cursor: pointer; transition: 0.3s ease;}
+.user-actions img:hover {filter: brightness(0) saturate(100%) invert(20%) sepia(90%) saturate(500%) hue-rotate(180deg);}
 .language-btn {background-color: #0c416a; border: 1px solid #0c416a; color: #fff; display: inline-block; height: 35px; width: 40px; border-radius: 3px; cursor: pointer; font-weight: 500; transition: all 0.3s; align-self: center;}
-.language-btn:hover {background-color: transparent; color: #000; transform: scale(1.1);}
+.language-btn:hover {background-color: transparent; color: #000;}
 .navbar {display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 15px; margin: 5px; border-bottom: 1px solid #e8ebed;}
 .nav-search {grid-column: 3; display: flex; justify-content: flex-end; padding:5px; align-items: center;}
 .search-input {height: 30px; width: 180px; padding: 6px 12px;border: 1px solid #d0d7de; border-radius: 3px; outline: none; font-size: 14px; transition: all 0.3s ease;}
@@ -21,6 +22,18 @@ body {font-family: 'Segoe UI', sans-serif; background-color: #f5f6f7; display: f
 .navbar a::after {content: ""; position: absolute; left: 0; bottom: -5px; width: 0%; height: 2.5px; background-color: #0c416a; transition: width 0.3s;}
 .navbar a:hover::after {width: 100%;}
 .main {flex: 1;}
+h2 {font-size: 28px; font-weight: 700; color: #0d5290; margin: 40px 30px 20px; letter-spacing: 1px; position: relative;}
+h2::after {content: ""; display: block; width: 210px; height: 4px; background-color: #0d5290; margin-top: 8px;}
+.products-container {display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 90px; padding: 30px;}
+.product-card {background: #fff; border-radius: 5px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: flex-start;}
+.product-card:hover {box-shadow: 0 8px 20px rgba(0,0,0,0.20);}
+.product-image {width: 100%; height: 150px; object-fit: contain; margin-bottom: 30px;}
+.product-info {display: flex; flex-direction: column;}
+.product-title {font-size: 16px; font-weight: 600; color: #333;height: 48px; line-height: 24px; overflow: hidden;}
+.product-description {font-size: 13px; color: #777;}
+.product-price {font-size: 18px; font-weight: bold; color: #0d5290;}
+.add-to-cart {margin-top: 10px; padding: 10px; border: none; border-radius: 5px; background-color:  #0d5290; color: white; font-weight: 500; cursor: pointer; transition: ease 0.2s;}
+.add-to-cart:hover {background-color:#0c416a;}
 footer {background: #0f172a; display: flex; justify-content: space-between; gap: 80px; padding: 1px 40px 10px; margin-top: auto;}
 footer h4 {font-size: 18px; margin-bottom: 12px; color: #eee; text-align: center;}
 .footer-brand p {font-size: 14px; color: #94a3b8;}
@@ -30,4 +43,3 @@ footer h4 {font-size: 18px; margin-bottom: 12px; color: #eee; text-align: center
 .footer-contact a {text-decoration: none; color: #94a3b8; font-size: 14px;}
 .footer-contact a:hover {color: #38bdf8;}
 .footer-copyright {text-align: center; font-size: 13px; color: #94a3b8; align-self: center;}
-
