@@ -2,21 +2,25 @@
     {
         "id": 1,
         "name": "Bilgisayar",
-        "slug": "computer"
+        "slug": "computer",
+        "image" : "/pixel_store/assets/icons/laptop.png"
     },
     {
         "id": 2,
         "name": "Tablet",
-        "slug": "tablet"
+        "slug": "tablet",
+        "image" : "/pixel_store/assets/icons/tablet.png"
     },
     {
         "id": 3,
         "name": "Telefon",
-        "slug": "phone"
+        "slug": "phone",
+        "image" : "/pixel_store/assets/icons/phone.png"
     },
     {
         "id": 4,
         "name": "Televizyon",
-        "slug": "tv"
+        "slug": "tv",
+        "image" : "/pixel_store/assets/icons/tv.png"
     }
 ]
