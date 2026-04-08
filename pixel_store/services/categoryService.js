@@ -1,6 +1,6 @@
 async function getCategories() {
     try {
-        const response = await fetch("../data/categories.json")
+        const response = await fetch("/pixel_store/data/categories.json")
         const data = await response.json()
         return data
     } catch (err) {
