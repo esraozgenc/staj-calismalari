@@ -46,3 +46,20 @@ document.addEventListener("click", (e) => {
         window.location.href = `/pixel_store/pages/category-${slug}.html`
     }
 })
+
+//userService.js işlemleri (navbar/profile icon)
+import { isLoggedIn } from "./userService.js"
+
+document.addEventListener("DOMContentLoaded", () => {
+    const profileIcon = document.querySelector("#profileIcon")
+
+    if (!profileIcon) return
+
+    profileIcon.addEventListener("click", () => {
+        if (isLoggedIn()) {
+            window.location.href = "/profile.html"
+        } else {
+            window.location.href = "/auth.html"
+        }
+    })
+})
