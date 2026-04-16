@@ -55,3 +55,17 @@ document.querySelector("#updateForm").addEventListener("submit", (e) => {
 import { logout } from "./userService.js"
 
 document.querySelector("#logoutBtn").addEventListener("click", logout)
+
+// siparişlerin listelenmesi
+import { getOrders } from "../services/orderService.js"
+
+const orders = getOrders()
+
+const container = document.getElementById("orders-container")
+
+if (orders.length === 0) {
+    container.innerHTML = "Sipariş yok"
+} else {
+    container.innerHTML =
+        orders.map(o => `Sipariş: ${o.id} - ${o.totalPrice} TL`).join("")
+}

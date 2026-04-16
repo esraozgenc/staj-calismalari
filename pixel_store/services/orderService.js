@@ -1,4 +1,4 @@
-import { getCart, clearCart } from "./cartService.js"
+import { getCart, clearCart } from "pixel_store/services/cartService.js"
 
 const ORDER_KEY = "orders"
 const ORDER_ITEMS_KEY = "orderItems"
