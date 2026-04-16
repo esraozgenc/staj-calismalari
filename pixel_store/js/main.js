@@ -1,20 +1,23 @@
-import {headerHTML} from "../components/header.js"
-import {footerHTML} from "../components/footer.js"
-import {getAllProducts} from "../services/productService.js"
-import {addToCart} from "../services/cartService.js"
-import {productCardHTML } from "../components/productCard.js"
-import {getCategories} from "../services/categoryService.js"
-import {categoryCardHTML} from "../components/categoryCard.js"
+import { headerHTML } from "../components/header.js"
+import { footerHTML } from "../components/footer.js"
+import { getAllProducts } from "../services/productService.js"
+import { addToCart } from "../services/cartService.js"
+import { productCardHTML } from "../components/productCard.js"
+import { getCategories } from "../services/categoryService.js"
+import { categoryCardHTML } from "../components/categoryCard.js"
+import { isLoggedIn } from "../services/userService.js"
 
 document.querySelector("#header").innerHTML = headerHTML()
 document.querySelector("#footer").innerHTML = footerHTML()
 
+let products = []
 //ürünleri veritabanından getirip ekrana yazdıran fonksiyon
 async function renderProducts() {
-    const products = await getAllProducts()
-    const container = document.querySelector("#products")
+    products = await getAllProducts()
 
+    const container = document.querySelector("#products")
     container.innerHTML = products.map(productCardHTML).join("")
+    
 }
 
 renderProducts()
@@ -22,8 +25,15 @@ renderProducts()
 //click event (add to cart)
 document.addEventListener("click", (e) =>{
     if(e.target.classList.contains("add-to-cart")) {
+
+        if (!products.length) return
+
         const productId = Number(e.target.dataset.id)
-        addToCart(productId)
+        const product = products.find(p => p.id === productId)
+
+        if (!product) return
+
+        addToCart(product)
     }
 })
 
@@ -48,7 +58,6 @@ document.addEventListener("click", (e) => {
 })
 
 //userService.js işlemleri (navbar/profile icon)
-import { isLoggedIn } from "./userService.js"
 
 document.addEventListener("DOMContentLoaded", () => {
     const profileIcon = document.querySelector("#profileIcon")

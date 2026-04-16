@@ -17,13 +17,19 @@ function saveCart(cart){
 }
 
 //sepete ürün ekler veya adet sayısnı artırır
-function addToCart(productId){
+function addToCart(product){
+    if (!product) return
     let cart = getCart()
-    const existingItem = cart.find(item => item.productId === productId)
+    const existingItem = cart.find(item => item.productId == product.id)
     if (existingItem){
         existingItem.quantity += 1
     } else{
-        cart.push({productId, "quantity": 1})
+        cart.push({
+        productId: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: 1
+})
     }
     saveCart(cart)
 }
