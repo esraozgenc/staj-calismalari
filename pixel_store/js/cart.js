@@ -1,4 +1,5 @@
 import { getCart, saveCart } from "../services/cartService.js"
+import { cartCardHTML } from "../components/cartCard.js"
 
 const container = document.getElementById("cart-container")
 const totalEl = document.getElementById("total")
@@ -8,31 +9,16 @@ let cart = getCart() || []
 
 // ---------------- RENDER ----------------
 function renderCart() {
-  console.log("Mevcut Sepet:", cart); // Sepetteki objelerin içini kontrol et
+    console.log(cart)
   container.innerHTML = ""
+
   if (!cart.length) {
     container.innerHTML = "<p>Sepet boş</p>"
     totalEl.textContent = ""
     return
   }
 
-  cart.forEach(item => {
-    const div = document.createElement("div")
-    div.className = "cart-item"
-
-    div.innerHTML = `
-      <span>${item.name}</span>
-      <span>${item.price}₺</span>
-
-      <div>
-        <button data-id="${item.productId}" class="decrease">-</button>
-        <span>${item.quantity}</span>
-        <button data-id="${item.productId}" class="increase">+</button>
-      </div>
-    `
-
-    container.appendChild(div)
-  })
+  container.innerHTML = cart.map(item => cartCardHTML(item)).join("")
 
   updateTotal()
 }
@@ -76,10 +62,10 @@ container.addEventListener("click", (e) => {
 // ---------------- CHECKOUT ----------------
 checkoutBtn.addEventListener("click", () => {
   if (!localStorage.getItem("user")) {
-    location.href = "login.html"
+    location.href = "/pixel_store/pages/auth.html"
     return
   }
-  location.href = "checkout.html"
+  location.href = "/pixel_store/pages/checkout.html"
 })
 
 // init

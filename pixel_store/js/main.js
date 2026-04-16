@@ -1,14 +1,9 @@
-import { headerHTML } from "../components/header.js"
-import { footerHTML } from "../components/footer.js"
 import { getAllProducts } from "../services/productService.js"
 import { addToCart } from "../services/cartService.js"
 import { productCardHTML } from "../components/productCard.js"
 import { getCategories } from "../services/categoryService.js"
 import { categoryCardHTML } from "../components/categoryCard.js"
 import { isLoggedIn } from "../services/userService.js"
-
-document.querySelector("#header").innerHTML = headerHTML()
-document.querySelector("#footer").innerHTML = footerHTML()
 
 let products = []
 //ürünleri veritabanından getirip ekrana yazdıran fonksiyon
