@@ -9,23 +9,22 @@ let cart = getCart() || []
 
 // ---------------- RENDER ----------------
 function renderCart() {
-    console.log(cart)
-  container.innerHTML = ""
+    container.innerHTML = ""
 
-  if (!cart.length) {
-    container.innerHTML = "<p>Sepet boş</p>"
-    totalEl.textContent = ""
-    return
-  }
+    if (!cart.length) {
+        container.innerHTML = "<p>Sepet boş</p>"
+        totalEl.textContent = ""
+        return
+    }
 
-  container.innerHTML = cart.map(item => cartCardHTML(item)).join("")
+    container.innerHTML = cart.map(item => cartCardHTML(item)).join("")
 
-  updateTotal()
+    updateTotal()
 }
 
-// ---------------- TOTAL (Daha Güvenli Hali) ----------------
+// ---------------- TOTAL ----------------
 function updateTotal() {
-  const total = cart.reduce((sum, item) => {
+    const total = cart.reduce((sum, item) => {
     // Fiyatın sayı olduğundan emin ol, değilse 0 kabul et
     const price = Number(item.price) || 0; 
     const quantity = Number(item.quantity) || 0;
@@ -38,34 +37,34 @@ function updateTotal() {
 
 // ---------------- EVENTS ----------------
 container.addEventListener("click", (e) => {
-  const id = e.target.dataset.id
-  if (!id) return
-  const item = cart.find(i => i.productId == id)
-  if (!item) return
+    const id = e.target.dataset.id
+    if (!id) return
+    const item = cart.find(i => i.productId == id)
+    if (!item) return
 
-  if (e.target.classList.contains("increase")) {
-    item.quantity++
-  }
-
-  if (e.target.classList.contains("decrease")) {
-    if (item.quantity > 1) {
-      item.quantity--
-    } else {
-        cart = cart.filter(i => i.productId != id)
+    if (e.target.classList.contains("increase")) {
+        item.quantity++
     }
-  }
 
-  saveCart(cart)
-  renderCart()
+    if (e.target.classList.contains("decrease")) {
+        if (item.quantity > 1) {
+            item.quantity--
+        } else {
+            cart = cart.filter(i => i.productId != id)
+        }
+    }
+
+    saveCart(cart)
+    renderCart()
 })
 
 // ---------------- CHECKOUT ----------------
 checkoutBtn.addEventListener("click", () => {
-  if (!localStorage.getItem("user")) {
-    location.href = "/pixel_store/pages/auth.html"
-    return
-  }
-  location.href = "/pixel_store/pages/checkout.html"
+    if (!localStorage.getItem("user")) {
+        location.href = "/pixel_store/pages/auth.html"
+        return
+    }
+    location.href = "/pixel_store/pages/checkout.html"
 })
 
 // init

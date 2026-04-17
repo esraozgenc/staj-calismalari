@@ -6,7 +6,7 @@ export function productCardHTML(product){
         <div class="product-info">
             <h3 class="product-title">${product.name}</h3>
             <p class="product-description">${product.description}</p>
-            <p class="product-price">${product.price} TL</p>        
+            <p class="product-price">${product.price} ₺</p>        
             <button class="add-to-cart" data-id="${product.id}">Sepete Ekle</button>
         </div>
     </div>
