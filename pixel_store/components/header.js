@@ -23,10 +23,10 @@ export function headerHTML(){
         </div>
         <div class="navbar">
             <div class="nav-links">
-                <a href="/pixel_store/pages/category-computer.html">BİLGİSAYAR</a>
-                <a href="/pixel_store/pages/category-tablet.html">TABLET</a>
-                <a href="/pixel_store/pages/category-phone.html">TELEFON</a>
-                <a href="/pixel_store/pages/category-tv.html">TELEVİZYON</a>
+                <a href="/pixel_store/pages/category.html?category=1">BİLGİSAYAR</a>
+                <a href="/pixel_store/pages/category.html?category=2">TABLET</a>
+                <a href="/pixel_store/pages/category.html?category=3">TELEFON</a>
+                <a href="/pixel_store/pages/category.html?category=4">TELEVİZYON</a>
             </div>
             <div class="nav-search">
                 <input type="text" class="search-input" placeholder="Ürün ara...">

@@ -11,10 +11,10 @@ export function footerHTML(){
                 <a href="/pixel_store/index.html">Anasayfa</a>
                 <a href="/pixel_store/pages/cart.html">Sepet</a>
                 <a href="/pixel_store/pages/profile.html">Profil</a>
-                <a href="/pixel_store/pages/category-computer.html">Bilgisayar</a>
-                <a href="/pixel_store/pages/category-tablet.html">Tablet</a>
-                <a href="/pixel_store/pages/category-phone.html">Telefon</a>
-                <a href="/pixel_store/pages/category-tv.html">Televizyon</a>
+                <a href="/pixel_store/pages/category.html?category=1">Bilgisayar</a>
+                <a href="/pixel_store/pages/category.html?category=2">Tablet</a>
+                <a href="/pixel_store/pages/category.html?category=3">Telefon</a>
+                <a href="/pixel_store/pages/category.html?category=4">Televizyon</a>
             </div>
         </div>
         <div class="footer-contact">
