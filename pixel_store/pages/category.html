@@ -8,9 +8,36 @@
 </head>
 <body>
     <div id="header"></div>
-    <main>
-        <h2 id="category-title"></h2>
-        <div id="product-list" id="products" class="products-container"></div>
+    <h2 id="category-title"></h2>
+    <main class="category-layout">
+        <aside class="sidebar">
+            <h3>Filtrele</h3>
+            
+            <div class="filter-group">
+                <label>Min Fiyat</label>
+                <input type="number" id="min-price">
+
+                <label>Max Fiyat</label>
+                <input type="number" id="max-price">
+            </div>
+
+            <div class="filter-group">
+                <h4>Marka</h4>
+                <div id="brand-filters"></div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Sırala</h4>
+                <select id="sort">
+                    <option value="">Seç</option>
+                    <option value="asc">Ucucdan pahalıya</option>
+                    <option value="desc">Pahalıdan ucuza</option>
+                </select>
+            </div>
+        </aside>
+        <section>
+            <div id="product-list" class="products-container"></div>
+        </section>
     </main>
     <div id="footer"></div>
 
