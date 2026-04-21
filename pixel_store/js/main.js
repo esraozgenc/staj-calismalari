@@ -61,9 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     profileIcon.addEventListener("click", () => {
         if (isLoggedIn()) {
-            window.location.href = "/profile.html"
+            window.location.href = "/pixel_store/pages/profile.html"
         } else {
-            window.location.href = "/auth.html"
+            window.location.href = "/pixel_store/pages/auth.html"
         }
     })
 })

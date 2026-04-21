@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giriş - Kayıt</title>
+    <title>Login - Register</title>
+    <link rel="stylesheet" href="/pixel_store/css/style.css">
 </head>
 <body>
+    <div id="header"></div>
+    <main class="auth-container">
+        <div class="auth-box">
+
+            <!-- tab buttons -->
+            <div class="auth-tabs">
+                <button id="showLogin" class="active">Giriş Yap</button>
+                <button id="showRegister">Kayıt Ol</button>
+            </div>
+
+            <!-- login form -->
+            <form id="loginForm" class="auth-form">
+                <h3>Giriş Yap</h3>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Şifre" required>
+                <button type="submit">Giriş Yap</button>
+            </form>
+
+            <!-- register form -->
+            <form id="registerForm" class="auth-form hidden">
+                <h3>Kayıt Ol</h3>
+                <input type="text" id="name" placeholder="Ad Soyad" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Şifre" required>
+                <input type="text" id="address" placeholder="Adres">
+                <input type="text" id="phone" placeholder="Telefon">
+                <button type="submit">Kayıt Ol</button>
+            </form>
+
+        </div>
+    </main>
+    <div id="footer"></div>
     <script type="module" src="/pixel_store/js/auth.js"></script>
+    <script type="module" src="/pixel_store/js/utils.js"></script>
 </body>
 </html>

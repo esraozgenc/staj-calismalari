@@ -15,7 +15,10 @@ export async function login(email, password){
     const users = await response.json()
     let user = users.find(user => user.email === email)
     if(user === undefined){
-        return "Kullanıcı bulunamadı lütfen kayıt olun."
+        return {
+        success: false,
+        message: "Kullanıcı bulunamadı lütfen kayıt olun."
+    }
     }else{
         if(user.password !== password){
             return{

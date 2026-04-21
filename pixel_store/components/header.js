@@ -9,13 +9,12 @@ export function headerHTML(){
             </div>
 
             <a href="/pixel_store/index.html">
-                    <span>PIXEL</span>
+                <span>PIXEL</span>
             </a>
+            
             <div class="user-actions">
                 <button class="language-btn">TR</button>
-                <a href="/pixel_store/pages/profile.html">
-                    <img src="/pixel_store/assets/icons/profile.png">
-                </a>
+                <img id="profileIcon" src="/pixel_store/assets/icons/profile.png" alt="profile">
                 <a href="/pixel_store/pages/cart.html">
                     <img src="/pixel_store/assets/icons/cart.png">
                 </a>

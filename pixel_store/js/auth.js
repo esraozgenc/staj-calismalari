@@ -1,6 +1,6 @@
-//login
-import { login } from "./userService.js"
+import { login, register } from "../services/userService.js"
 
+//login
 document.querySelector("#loginForm").addEventListener("submit", async (e) => {
     e.preventDefault()
 
@@ -12,13 +12,11 @@ document.querySelector("#loginForm").addEventListener("submit", async (e) => {
     if (!result.success) {
         alert(result.message)
     } else {
-        window.location.href = "/profile.html"
+        window.location.href = "/pixel_store/pages/profile.html"
     }
 })
 
 //register
-import { register } from "./userService.js"
-
 document.querySelector("#registerForm").addEventListener("submit", async (e) => {
     e.preventDefault()
 
@@ -36,6 +34,26 @@ document.querySelector("#registerForm").addEventListener("submit", async (e) => 
         alert(result.message)
     } else {
         alert("Kayıt başarılı")
-        window.location.href = "/profile.html"
+        window.location.href = "/pixel_store/pages/profile.html"
     }
+})
+
+//event
+const showLogin = document.querySelector("#showLogin")
+const showRegister = document.querySelector("#showRegister")
+const loginForm = document.querySelector("#loginForm")
+const registerForm = document.querySelector("#registerForm")
+
+showLogin.addEventListener("click", () => {
+    loginForm.classList.remove("hidden")
+    registerForm.classList.add("hidden")
+    showLogin.classList.add("active")
+    showRegister.classList.remove("active")
+})
+
+showRegister.addEventListener("click", () => {
+    registerForm.classList.remove("hidden")
+    loginForm.classList.add("hidden")
+    showRegister.classList.add("active")
+    showLogin.classList.remove("active")
 })

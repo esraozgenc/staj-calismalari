@@ -51,6 +51,21 @@ h2::after {content: ""; display: block; width: 210px; height: 4px; background-co
 #total {font-size: 20px; font-weight: 500; color: #333;}
 #go-checkout {margin: 30px; padding: 10px 16px; font-size: 20px; border: none; border-radius: 5px; background-color:  #0d5290; color: white; font-weight: 500; cursor: pointer; transition: ease 0.2s; cursor: pointer;}
 #go-checkout:hover {background-color: #0c416a;}
+.category-layout {display: grid; grid-template-columns: 300px 1fr; color:#0d5290;}
+.sidebar {background: #fff; margin: 20px; padding: 20px; border: 1px solid #eee; border-radius:5px; display: flex; flex-direction: column; }
+.filter-group {margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px;}
+#brand-filters {display:  flex; flex-direction: column; gap: 5px;}
+#brand-filters label {display:  flex; align-items: center; gap: 6px;}
+.auth-container {display: flex; justify-content: center; align-items: center; height: 80vh; margin:20px;}
+.auth-box {width: 350px; background: #fff; padding: 25px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+.auth-tabs {display: flex; margin-bottom: 20px;}
+.auth-tabs button {flex: 1; padding: 10px; border: none; cursor: pointer; background: #eee; transition: 0.3s;}
+.auth-tabs button.active {background: #0c416a; color: white;}
+.auth-form {display: flex; flex-direction: column; gap: 10px;}
+.auth-form input {padding: 10px; border: 1px solid #ccc; border-radius: 5px;}
+.auth-form button {padding: 10px; border: none; background: #0c416a; color: white; cursor: pointer; border-radius: 5px;}
+.auth-form button:hover {opacity: 0.9;}
+.hidden {display: none;}
 footer {background: #0f172a; display: flex; justify-content: space-between; gap: 80px; padding: 1px 40px 10px; margin-top: auto;}
 footer h4 {font-size: 18px; margin-bottom: 12px; color: #eee; text-align: center;}
 .footer-brand p {font-size: 14px; color: #94a3b8;}
@@ -60,10 +75,3 @@ footer h4 {font-size: 18px; margin-bottom: 12px; color: #eee; text-align: center
 .footer-contact a {text-decoration: none; color: #94a3b8; font-size: 14px;}
 .footer-contact a:hover {color: #38bdf8;}
 .footer-copyright {text-align: center; font-size: 13px; color: #94a3b8; align-self: center;}
-
-
-.category-layout {display: grid; grid-template-columns: 300px 1fr; color:#0d5290;}
-.sidebar {background: #fff; margin: 20px; padding: 20px; border: 1px solid #eee; border-radius:5px; display: flex; flex-direction: column; }
-.filter-group {margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px;}
-#brand-filters {display:  flex; flex-direction: column; gap: 5px;}
-#brand-filters label {display:  flex; align-items: center; gap: 6px;}
