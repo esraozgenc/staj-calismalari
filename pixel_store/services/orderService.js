@@ -1,4 +1,4 @@
-import { getCart, clearCart } from "pixel_store/services/cartService.js"
+import { getCart, clearCart } from "/pixel_store/services/cartService.js"
 
 const ORDER_KEY = "orders"
 const ORDER_ITEMS_KEY = "orderItems"
@@ -39,7 +39,7 @@ function saveOrderItems(items) {
 export function createOrder(userId) {
     const cartData = getCart()
 
-    if (!cartData || cartData.items.length === 0) {
+    if (!cartData || cartData.length === 0) {
         alert("Sepet boş!")
         return
     }
@@ -52,7 +52,7 @@ export function createOrder(userId) {
     let totalPrice = 0
     const newOrderItems = []
 
-    cartData.items.forEach(item => {
+    cartData.forEach(item => {
         const itemTotal = item.price * item.quantity
         totalPrice += itemTotal
 

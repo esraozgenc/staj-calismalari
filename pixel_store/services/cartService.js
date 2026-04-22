@@ -56,4 +56,8 @@ function decreaseQuantity(productId){
     }
 }
 
-export {getCart, saveCart, addToCart, removeFromCart, decreaseQuantity}
+function clearCart() {
+    localStorage.removeItem("cart")
+}
+
+export {getCart, saveCart, addToCart, removeFromCart, decreaseQuantity, clearCart}

@@ -1,15 +1,32 @@
-//sayfa koruma
-import { isLoggedIn } from "./userService.js"
+import { isLoggedIn, getProfile, logout, updateProfile } from "/pixel_store/services/userService.js"
 
 if (!isLoggedIn()) {
     window.location.href = "/auth.html"
 }
 
-//profil ve sipariş bilgileri
-import { getProfile } from "./userService.js"
+let currentUser = JSON.parse(localStorage.getItem("currentUser"))
+let userData = null
+
+const fields = [
+    { span: "#userName", input: "#nameInput", key: "name" },
+    { span: "#userEmail", input: "#emailInput", key: "email" },
+    { span: "#userAddress", input: "#addressInput", key: "address" },
+    { span: "#userPhone", input: "#phoneInput", key: "phone" }
+]
+
+const mapped = fields.map(f => ({
+    span: document.querySelector(f.span),
+    input: document.querySelector(f.input),
+    key: f.key
+}))
+
+const editBtn = document.querySelector("#editBtn")
+const saveBtn = document.querySelector("#saveBtn")
+const cancelBtn = document.querySelector("#cancelBtn")
+
+const ordersContainer = document.querySelector("#orders-container")
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
     const result = await getProfile(currentUser.id)
 
@@ -19,29 +36,62 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const { user, orders } = result.data
+    userData = user
 
-    document.querySelector("#userName").textContent = user.name
-    document.querySelector("#userEmail").textContent = user.email
+    // USER BAS
+    mapped.forEach(f => {
+        f.span.textContent = user[f.key] || "-"
+    })
 
-    console.log("Siparişler:", orders)
+    // ORDERS BAS
+    renderOrders(orders)
 })
 
-//profil güncelleme
-import { updateProfile } from "./userService.js"
+// ORDERS UI
+function renderOrders(orders) {
+    ordersContainer.innerHTML = ""
 
-document.querySelector("#updateForm").addEventListener("submit", (e) => {
-    e.preventDefault()
+    orders.forEach(order => {
+        const div = document.createElement("div")
+        div.classList.add("order-card")
 
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+        div.innerHTML = `
+            <p>Sipariş ID: ${order.id}</p>
+            <p>Toplam: ${order.totalPrice} ₺</p>
+            <p>Tarih: ${order.createdAt}</p>
+        `
 
-    const updatedData = {
-        name: document.querySelector("#name").value,
-        email: document.querySelector("#email").value,
-        address: document.querySelector("#address").value,
-        phone: document.querySelector("#phone").value
-    }
+        ordersContainer.appendChild(div)
+    })
+}
 
-    const result = updateProfile(currentUser.id, updatedData)
+// EDIT
+editBtn.addEventListener("click", () => {
+
+    mapped.forEach(f => {
+        f.input.value = f.span.textContent
+        f.span.classList.add("hidden")
+        f.input.classList.remove("hidden")
+    })
+
+    editBtn.classList.add("hidden")
+    saveBtn.classList.remove("hidden")
+    cancelBtn.classList.remove("hidden")
+})
+
+// CANCEL
+cancelBtn.addEventListener("click", () => location.reload())
+
+// SAVE
+saveBtn.addEventListener("click", async () => {
+
+    const updatedData = {}
+
+    mapped.forEach(f => {
+        updatedData[f.key] = f.input.value
+    })
+
+    const result = await updateProfile(currentUser.id, updatedData)
 
     if (!result.success) {
         alert(result.message)
@@ -51,21 +101,5 @@ document.querySelector("#updateForm").addEventListener("submit", (e) => {
     }
 })
 
-//çıkş yapma işlemi
-import { logout } from "./userService.js"
-
+// LOGOUT
 document.querySelector("#logoutBtn").addEventListener("click", logout)
-
-// siparişlerin listelenmesi
-import { getOrders } from "../services/orderService.js"
-
-const orders = getOrders()
-
-const container = document.getElementById("orders-container")
-
-if (orders.length === 0) {
-    container.innerHTML = "Sipariş yok"
-} else {
-    container.innerHTML =
-        orders.map(o => `Sipariş: ${o.id} - ${o.totalPrice} TL`).join("")
-}
