@@ -93,8 +93,8 @@ saveBtn.addEventListener("click", async () => {
 
     const result = await updateProfile(currentUser.id, updatedData)
 
-    if (!result.success) {
-        alert(result.message)
+    if (!result || !result.success) {
+        alert(result?.message || "Hata oluştu")
     } else {
         alert("Profil güncellendi")
         location.reload()

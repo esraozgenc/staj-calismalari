@@ -33,6 +33,17 @@ export async function login(email, password){
             }
         }
     }
+
+    localStorage.setItem("users", JSON.stringify(users))
+    
+    localStorage.setItem("currentUser", JSON.stringify(user))
+
+    return {
+        success: true,
+        user: user
+    }
+    console.log("LOGIN ÇALIŞTI")
+    console.log(users)
 }
 
 //Kullanıcı kayıt işlemi
@@ -145,45 +156,38 @@ export async function getProfile(userId) {
     }
 }
 
-//Profil güncelleme
-export function updateProfile(userId, updatedData) {
+//profil güncelleme
+export async function updateProfile(userId, updatedData) {
     try {
-        //users al
-        let users = JSON.parse(localStorage.getItem("users")) || []
+        let users = JSON.parse(localStorage.getItem("users"))
 
-        //kullanıcıyı bul
-        const userIndex = users.findIndex(user => user.id === userId)
+        // 🔥 Eğer users yoksa JSON'dan çek
+        if (!users || users.length === 0) {
+            const res = await fetch("/pixel_store/data/users.json")
+            users = await res.json()
+            localStorage.setItem("users", JSON.stringify(users))
+        }
+
+        console.log("USERS:", users)
+        console.log("USER ID:", userId)
+
+        const userIndex = users.findIndex(user => Number(user.id) === Number(userId))
+
+        console.log("INDEX:", userIndex)
 
         if (userIndex === -1) {
             return { success: false, message: "Kullanıcı bulunamadı" }
         }
 
-        // email değişiyorsa kontrol et
-        const emailExists = users.find(
-            user => user.email === updatedData.email && user.id !== userId
-        )
-
-        if (emailExists) {
-            return { success: false, message: "Bu email zaten kullanımda" }
-        }
-
-        //güncelleme (merge işlemi)
+        // güncelle
         users[userIndex] = {
             ...users[userIndex],
             ...updatedData
         }
 
-        //localStorage’a kaydet
         localStorage.setItem("users", JSON.stringify(users))
+        localStorage.setItem("currentUser", JSON.stringify(users[userIndex]))
 
-        //eğer giriş yapan kullanıcıysa onu da güncelle
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-
-        if (currentUser && currentUser.id === userId) {
-            localStorage.setItem("currentUser", JSON.stringify(users[userIndex]))
-        }
-
-        //sonuç döndür
         return {
             success: true,
             data: users[userIndex]
