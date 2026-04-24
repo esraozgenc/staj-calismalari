@@ -137,9 +137,14 @@ export async function getProfile(userId) {
                         quantity: item.quantity
                     }
                 })
+            const totalPrice = items.reduce((total, item) => {
+                return total + (item.product.price * item.quantity)
+            }, 0)
+
             return {
                 ...order,
-                items: items
+                items: items,
+                totalPrice: totalPrice
             }
         })
         //sonuç

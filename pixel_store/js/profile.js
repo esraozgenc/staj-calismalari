@@ -52,6 +52,15 @@ function renderOrders(orders) {
     ordersContainer.innerHTML = ""
 
     orders.forEach(order => {
+
+        const itemsHTML = order.items.map(item => {
+            return `
+                <div class="order-item">
+                    ${item.product.name} x ${item.quantity}
+                </div>
+            `
+        }).join("")
+
         const div = document.createElement("div")
         div.classList.add("order-card")
 
@@ -59,6 +68,9 @@ function renderOrders(orders) {
             <p>Sipariş ID: ${order.id}</p>
             <p>Toplam: ${order.totalPrice} ₺</p>
             <p>Tarih: ${order.createdAt}</p>
+            <div>
+                ${itemsHTML}
+            </div>
         `
 
         ordersContainer.appendChild(div)

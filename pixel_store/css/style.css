@@ -66,6 +66,14 @@ h2::after {content: ""; display: block; width: 210px; height: 4px; background-co
 .auth-form button {padding: 10px; border: none; background: #0c416a; color: white; cursor: pointer; border-radius: 5px;}
 .auth-form button:hover {opacity: 0.9;}
 .hidden {display: none;}
+#profile {display: flex; flex-direction: column;}
+.profile-h3 {font-weight: 700; color: #0d5290; margin: 20px; position: relative;}
+.profile-h3::after {content: ""; display: block; width: 110px; height: 2px; background-color: #0d5290; margin-top: 3px;}
+.profile-info, .orders {background: white; padding: 20px; margin: 20px auto; max-width: 600px; border-radius: 5px; max-width: 90%; width: 800px;}
+.profile-info input {margin-left: 10px; padding: 5px;}
+.profile-info button {padding: 10px; border: none; background: #0c416a; color: white; cursor: pointer; border-radius: 5px;} 
+.orders #orders-container {font-size: 14px; margin-left: 10px;}  
+#logoutBtn {margin: 20px; padding: 10px; border: none; background: #e6460b; color: white; cursor: pointer; border-radius: 5px;}
 footer {background: #0f172a; display: flex; justify-content: space-between; gap: 80px; padding: 1px 40px 10px; margin-top: auto;}
 footer h4 {font-size: 18px; margin-bottom: 12px; color: #eee; text-align: center;}
 .footer-brand p {font-size: 14px; color: #94a3b8;}
@@ -75,12 +83,3 @@ footer h4 {font-size: 18px; margin-bottom: 12px; color: #eee; text-align: center
 .footer-contact a {text-decoration: none; color: #94a3b8; font-size: 14px;}
 .footer-contact a:hover {color: #38bdf8;}
 .footer-copyright {text-align: center; font-size: 13px; color: #94a3b8; align-self: center;}
-
-
-section {background: white; padding: 20px; margin: 20px auto; max-width: 600px; border-radius: 8px;}
-input {display: block; width: 100%; margin-bottom: 10px; padding: 10px;}
-button {padding: 10px; cursor: pointer;}
-.order-card {border: 1px solid #ddd; margin-top: 10px; padding: 10px;}
-.order-item {font-size: 14px; margin-left: 10px;}
-.hidden {display: none;}
-.profile-info input {margin-left: 10px; padding: 5px;}

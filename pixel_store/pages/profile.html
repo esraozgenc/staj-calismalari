@@ -1,57 +1,61 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
-    <link rel="stylesheet" href="/pixel_store/css/style.css">
-</head>
-<body>
+<!DOCTYPE html> 
+
+<html lang="tr"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Profil</title> 
+
+    <link rel="stylesheet" href="/pixel_store/css/style.css"> 
+
+</head> 
+
+<body> 
     <div id="header"></div>
-    <h2>Profilim</h2>
-    <section class="profile-info">
-    <h2>Bilgilerim</h2>
+    <main id="profile"> 
+        <h2>Profilim</h2> 
+            <section class="profile-info"> 
+                <h3 class="profile-h3">Bilgilerim</h3> 
+                <p> 
+                    Ad:  
+                    <span id="userName"></span> 
+                    <input type="text" id="nameInput" class="hidden"> 
+                </p> 
+                <p> 
+                    Email:  
+                    <span id="userEmail"></span> 
+                    <input type="email" id="emailInput" class="hidden"> 
+                </p> 
+                <p> 
+                    Adres:  
+                    <span id="userAddress"></span> 
+                    <input type="text" id="addressInput" class="hidden"> 
+                </p> 
+                <p> 
+                    Telefon:  
+                    <span id="userPhone"></span> 
+                    <input type="text" id="phoneInput" class="hidden"> 
+                </p> 
 
-    <p>
-        Ad: 
-        <span id="userName"></span>
-        <input type="text" id="nameInput" class="hidden">
-    </p>
+                <button id="editBtn">Düzenle</button> 
+                <button id="saveBtn" class="hidden">Kaydet</button> 
+                <button id="cancelBtn" class="hidden">İptal</button> 
+                <button id="logoutBtn">Çıkış Yap</button>
 
-    <p>
-        Email: 
-        <span id="userEmail"></span>
-        <input type="email" id="emailInput" class="hidden">
-    </p>
+            </section> 
 
-    <p>
-        Adres: 
-        <span id="userAddress"></span>
-        <input type="text" id="addressInput" class="hidden">
-    </p>
+            <section class="orders"> 
+                <h3 class="profile-h3">Siparişlerim</h3> 
+                <div id="orders-container"></div> 
+            </section>              
+    </main>
+    <div id="footer"></div> 
 
-    <p>
-        Telefon: 
-        <span id="userPhone"></span>
-        <input type="text" id="phoneInput" class="hidden">
-    </p>
-
-    <button id="editBtn">Düzenle</button>
-    <button id="saveBtn" class="hidden">Kaydet</button>
-    <button id="cancelBtn" class="hidden">İptal</button>
-    </section>
-
-    <!-- Siparişler -->
-    <section class="orders">
-        <h2>Siparişlerim</h2>
-        <div id="orders-container"></div>
-    </section>
-
-    <button id="logoutBtn">Çıkış Yap</button>
-
-    <div id="footer"></div>
-    
-    <script type="module" src="/pixel_store/js/profile.js"></script>
-    <script type="module" src="/pixel_store/js/utils.js"></script>
+    <script type="module" src="/pixel_store/js/profile.js"></script> 
+    <script type="module" src="/pixel_store/js/utils.js"></script> 
 </body>
-</html>
+</html> 
