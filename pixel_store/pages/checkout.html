@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ödeme</title>
+    <link rel="stylesheet" href="/pixel_store/css/style.css">
+</head>
+<body>
+
+<div id="header"></div>
+
+<main class="checkout-container">
+
+    <h2>Ödeme Sayfası</h2>
+
+    <div class="checkout-wrapper">
+
+        <!-- SOL: ÜRÜNLER -->
+        <div class="checkout-left">
+            <h3>Sepet Özeti</h3>
+            <div id="checkout-items"></div>
+        </div>
+
+        <!-- SAĞ: ÖDEME -->
+        <div class="checkout-right">
+            <h3>Ödeme Bilgileri</h3>
+
+            <div id="checkout-total" class="checkout-total"></div>
+
+            <div class="payment-form">
+                <input type="text" id="card-name" placeholder="Kart Üzerindeki İsim">
+
+                <input type="text" id="card-number" placeholder="Kart Numarası (16 hane)">
+
+                <div class="card-row">
+                    <input type="text" id="card-expiry" placeholder="AA/YY">
+                    <input type="text" id="card-cvv" placeholder="CVV">
+                </div>
+            </div>
+
+            <button id="complete-order" class="pay-btn">
+                Ödemeyi Tamamla
+            </button>
+        </div>
+
+    </div>
+
+</main>
+
+<div id="footer"></div>
+
+<script type="module" src="/pixel_store/js/checkout.js"></script>
+<script type="module" src="/pixel_store/js/utils.js"></script>
+</body>
+</html>

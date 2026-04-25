@@ -83,3 +83,17 @@ footer h4 {font-size: 18px; margin-bottom: 12px; color: #eee; text-align: center
 .footer-contact a {text-decoration: none; color: #94a3b8; font-size: 14px;}
 .footer-contact a:hover {color: #38bdf8;}
 .footer-copyright {text-align: center; font-size: 13px; color: #94a3b8; align-self: center;}
+
+.checkout-container {max-width: 1100px; margin: 40px auto; padding: 20px;}
+.checkout-wrapper {display: flex; gap: 40px; margin-top: 20px;}
+.checkout-left {flex: 2; background: #fff; padding: 20px; border: 1px solid #eee; border-radius: 10px;}
+.checkout-item {display: flex; align-items: center; gap: 15px; border-bottom: 1px solid #eee; padding: 10px 0;}
+.checkout-item img {border-radius: 6px;}
+.checkout-right {flex: 1; background: #fff; padding: 20px; border: 1px solid #eee; border-radius: 10px; height: fit-content;}
+.checkout-total {font-size: 20px; font-weight: bold; margin-bottom: 20px;}
+.payment-form {display: flex; flex-direction: column; gap: 10px;}
+.payment-form input {padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;}
+.card-row {display: flex; gap: 10px;}
+.card-row input {flex: 1;}
+.pay-btn {margin-top: 20px; width: 100%; padding: 12px; background: black; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;}
+.pay-btn:hover {background: #333;}

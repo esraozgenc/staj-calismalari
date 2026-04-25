@@ -7,7 +7,7 @@ const checkoutBtn = document.getElementById("go-checkout")
 
 let cart = getCart() || []
 
-// ---------------- RENDER ----------------
+// RENDER    
 function renderCart() {
     container.innerHTML = ""
 
@@ -22,7 +22,7 @@ function renderCart() {
     updateTotal()
 }
 
-// ---------------- TOTAL ----------------
+// TOTAL    
 function updateTotal() {
     const total = cart.reduce((sum, item) => {
     // Fiyatın sayı olduğundan emin ol, değilse 0 kabul et
@@ -35,7 +35,7 @@ function updateTotal() {
   totalEl.textContent = "Toplam: " + total.toLocaleString('tr-TR') + "₺";
 }
 
-// ---------------- EVENTS ----------------
+// EVENTS    
 container.addEventListener("click", (e) => {
     const id = e.target.dataset.id
     if (!id) return
@@ -58,9 +58,9 @@ container.addEventListener("click", (e) => {
     renderCart()
 })
 
-// ---------------- CHECKOUT ----------------
+// CHECKOUT
 checkoutBtn.addEventListener("click", () => {
-    if (!localStorage.getItem("user")) {
+    if (!localStorage.getItem("currentUser")) {
         location.href = "/pixel_store/pages/auth.html"
         return
     }
