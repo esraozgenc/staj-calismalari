@@ -1,10 +1,15 @@
+console.log("CURRENT USER:", localStorage.getItem("currentUser"))
 import { isLoggedIn, getProfile, logout, updateProfile } from "/pixel_store/services/userService.js"
 
 if (!isLoggedIn()) {
     window.location.href = "/auth.html"
 }
 
-let currentUser = JSON.parse(localStorage.getItem("currentUser"))
+let currentUser = JSON.parse(localStorage.getItem("currentUser") || "null")
+if (!currentUser) {
+    alert("Kullanıcı bulunamadı")
+    window.location.href = "/pixel_store/pages/auth.html"
+}
 let userData = null
 
 const fields = [
@@ -26,24 +31,16 @@ const cancelBtn = document.querySelector("#cancelBtn")
 
 const ordersContainer = document.querySelector("#orders-container")
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const result = await getProfile(currentUser.id)
+    const orders = JSON.parse(localStorage.getItem("orders")) || []
 
-    if (!result.success) {
-        alert(result.message)
-        return
-    }
+    console.log("ORDERS:", orders)
 
-    const { user, orders } = result.data
-    userData = user
-
-    // USER BAS
     mapped.forEach(f => {
-        f.span.textContent = user[f.key] || "-"
+        f.span.textContent = currentUser[f.key] || "-"
     })
 
-    // ORDERS BAS
     renderOrders(orders)
 })
 
@@ -51,15 +48,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 function renderOrders(orders) {
     ordersContainer.innerHTML = ""
 
-    orders.forEach(order => {
+    if (!orders.length) {
+        ordersContainer.innerHTML = "<p>Henüz sipariş yok</p>"
+        return
+    }
 
-        const itemsHTML = order.items.map(item => {
-            return `
-                <div class="order-item">
-                    ${item.product.name} x ${item.quantity}
-                </div>
-            `
-        }).join("")
+    orders.forEach(order => {
 
         const div = document.createElement("div")
         div.classList.add("order-card")
@@ -68,9 +62,6 @@ function renderOrders(orders) {
             <p>Sipariş ID: ${order.id}</p>
             <p>Toplam: ${order.totalPrice} ₺</p>
             <p>Tarih: ${order.createdAt}</p>
-            <div>
-                ${itemsHTML}
-            </div>
         `
 
         ordersContainer.appendChild(div)
