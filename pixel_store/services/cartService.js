@@ -45,7 +45,7 @@ function removeFromCart(productId){
 //ürün adet sayısını azaltmak
 function decreaseQuantity(productId){
     let cart = getCart()
-    const item = cart.find(item => item.productId === productId)
+    const item = cart.find(item => item.productId == productId)
     if(!item) return;
 
     if(item.quantity >1){

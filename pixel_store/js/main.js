@@ -24,7 +24,7 @@ document.addEventListener("click", (e) =>{
         if (!products.length) return
 
         const productId = Number(e.target.dataset.id)
-        const product = products.find(p => p.id === productId)
+        const product = products.find(p => p.id == productId)
 
         if (!product) return
 

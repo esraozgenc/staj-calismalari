@@ -13,7 +13,7 @@ export function isLoggedIn(){
 export async function login(email, password){
     const response = await fetch("/pixel_store/data/users.json")
     const users = await response.json()
-    let user = users.find(user => user.email === email)
+    let user = users.find(user => user.email == email)
     if(user === undefined){
         return {
         success: false,
@@ -59,7 +59,7 @@ export async function register(userData){
 
     //kayıtlı bir kullanıcı olup olmadığının kontrolü
     let newId;
-    let existingUser = storedUsers.find(user => user.email === userData.email)
+    let existingUser = storedUsers.find(user => user.email == userData.email)
     if(existingUser !== undefined){
         return{
             success: false,
@@ -105,7 +105,7 @@ export async function getProfile(userId) {
         }
 
         //kullanıcıyı bul
-        const user = users.find(user => user.id === userId)
+        const user = users.find(user => user.id == userId)
         if (!user) {
             return { success: false, message: "Kullanıcı bulunamadı" }
         }
@@ -115,7 +115,7 @@ export async function getProfile(userId) {
         const orders = await ordersRes.json()
 
         //kullanıcıya ait siparişler
-        const userOrders = orders.filter(order => order.userId === userId)
+        const userOrders = orders.filter(order => order.userId == userId)
 
         //orderItems al
         const itemsRes = await fetch("/pixel_store/data/orderItems.json")
@@ -129,9 +129,9 @@ export async function getProfile(userId) {
         const detailedOrders = userOrders.map(order => {
             // bu siparişe ait itemler
             const items = orderItems
-                .filter(item => item.orderId === order.id)
+                .filter(item => item.orderId == order.id)
                 .map(item => {
-                    const product = products.find(product => product.id === item.productId)
+                    const product = products.find(product => product.id == item.productId)
                     return {
                         product: product,
                         quantity: item.quantity
@@ -176,7 +176,7 @@ export async function updateProfile(userId, updatedData) {
         console.log("USERS:", users)
         console.log("USER ID:", userId)
 
-        const userIndex = users.findIndex(user => Number(user.id) === Number(userId))
+        const userIndex = users.findIndex(user => user.id == userId)
 
         console.log("INDEX:", userIndex)
 

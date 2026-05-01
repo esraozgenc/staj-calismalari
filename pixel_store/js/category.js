@@ -1,6 +1,7 @@
-import { getAllProducts } from "../services/productService.js"
-import { productCardHTML } from "../components/productCard.js"
-import { getCategoryById } from "../services/categoryService.js"
+import { getAllProducts } from "/pixel_store/services/productService.js"
+import { productCardHTML } from "/pixel_store/components/productCard.js"
+import { getCategoryById } from "/pixel_store/services/categoryService.js"
+import { addToCart } from "/pixel_store/services/cartService.js"
 
 let allProducts = []
 let currentFilters = {
@@ -9,6 +10,19 @@ let currentFilters = {
     brands: [],
     sort: null
 }
+//sepete ekle butonun eventı
+document.querySelector("#product-list").addEventListener("click", (e) => { 
+    const btn = e.target.closest(".add-to-cart")
+    if (!btn) return
+
+    const productId = Number(btn.dataset.id)
+    const productToAdd = allProducts.find(p => p.id === productId)
+
+    if (productToAdd) {
+        console.log("Sepete eklenen ürün:", productToAdd)
+        addToCart(productToAdd)
+    }
+})
 
 //Name'den marka ismini çıkarma işlemi
 function getBrandFromName(name) {
