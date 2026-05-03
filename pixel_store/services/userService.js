@@ -11,39 +11,37 @@ export function isLoggedIn(){
 
 //Kullanıcı giriş işlemi
 export async function login(email, password){
-    const response = await fetch("/pixel_store/data/users.json")
-    const users = await response.json()
+    let users = JSON.parse(localStorage.getItem("users"))
+
+    // Eğer localStorage boşsa JSON'dan çek
+    if (!users) {
+        const response = await fetch("/pixel_store/data/users.json")
+        users = await response.json()
+        localStorage.setItem("users", JSON.stringify(users))
+    }
+
     let user = users.find(user => user.email == email)
+
     if(user === undefined){
         return {
-        success: false,
-        message: "Kullanıcı bulunamadı lütfen kayıt olun."
-    }
-    }else{
-        if(user.password !== password){
-            return{
-                success: false,
-                message: "Şifreniz yanlış"
-            }
-        }else{
-            localStorage.setItem("currentUser", JSON.stringify(user))
-            return {
-                success: true,
-                user: user
-            }
+            success: false,
+            message: "Kullanıcı bulunamadı lütfen kayıt olun."
         }
     }
 
-    localStorage.setItem("users", JSON.stringify(users))
-    
+    if(user.password !== password){
+        return{
+            success: false,
+            message: "Şifreniz yanlış"
+        }
+    }
+
     localStorage.setItem("currentUser", JSON.stringify(user))
 
     return {
         success: true,
         user: user
     }
-    console.log("LOGIN ÇALIŞTI")
-    console.log(users)
 }
 
 //Kullanıcı kayıt işlemi
@@ -68,11 +66,7 @@ export async function register(userData){
     }
     
     //unique ID
-    if(storedUsers.length === 0){
-        newId = 1
-    }else{
-        newId = Math.max(...storedUsers.map(user => user.id)) + 1
-    }    
+    newId = Date.now()
 
     let newUser = { //kayıt edilecek kullanıcı
         id: newId,
@@ -87,7 +81,7 @@ export async function register(userData){
 
     //yeni database
     localStorage.setItem("users",JSON.stringify(storedUsers))
-
+    localStorage.setItem("currentUser", JSON.stringify(newUser))
     return{
         success: true,
         data: newUser
@@ -166,7 +160,7 @@ export async function updateProfile(userId, updatedData) {
     try {
         let users = JSON.parse(localStorage.getItem("users"))
 
-        // 🔥 Eğer users yoksa JSON'dan çek
+        // Eğer users yoksa JSON'dan çek
         if (!users || users.length === 0) {
             const res = await fetch("/pixel_store/data/users.json")
             users = await res.json()
@@ -212,5 +206,5 @@ export function logout() {
     localStorage.removeItem("currentUser")
 
     // ana sayfaya yönlendir
-    window.location.href = "/index.html"
+    window.location.href = "/pixel_store/index.html"
 }

@@ -1,4 +1,4 @@
-import { login, register } from "../services/userService.js"
+import { login, register } from "/pixel_store/services/userService.js"
 
 //login
 document.querySelector("#loginForm").addEventListener("submit", async (e) => {

@@ -2,12 +2,11 @@ console.log("CURRENT USER:", localStorage.getItem("currentUser"))
 import { isLoggedIn, getProfile, logout, updateProfile } from "/pixel_store/services/userService.js"
 
 if (!isLoggedIn()) {
-    window.location.href = "/auth.html"
+    window.location.href = "/pixel_store/pages/auth.html"
 }
 
 let currentUser = JSON.parse(localStorage.getItem("currentUser") || "null")
 if (!currentUser) {
-    alert("Kullanıcı bulunamadı")
     window.location.href = "/pixel_store/pages/auth.html"
 }
 let userData = null
