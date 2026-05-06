@@ -31,16 +31,23 @@ const cancelBtn = document.querySelector("#cancelBtn")
 const ordersContainer = document.querySelector("#orders-container")
 
 document.addEventListener("DOMContentLoaded", () => {
+    // 1. Tüm siparişleri al
+    const allOrders = JSON.parse(localStorage.getItem("orders")) || []
 
-    const orders = JSON.parse(localStorage.getItem("orders")) || []
+    console.log("TÜM SİPARİŞLER:", allOrders)
 
-    console.log("ORDERS:", orders)
+    // 2. Sadece mevcut kullanıcıya ait olanları filtrele
+    // currentUser.id ile order.userId karşılaştırılıyor
+    const userOrders = allOrders.filter(order => order.userId == currentUser.id)
+
+    console.log("KULLANICIYA AİT SİPARİŞLER:", userOrders)
 
     mapped.forEach(f => {
         f.span.textContent = currentUser[f.key] || "-"
     })
 
-    renderOrders(orders)
+    // 3. Sadece filtrelenmiş siparişleri ekrana bas
+    renderOrders(userOrders)
 })
 
 // ORDERS UI
