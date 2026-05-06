@@ -30,24 +30,38 @@ function getBrandFromName(name) {
 }
 
 async function initCategoryPage() {
-
-    const title = document.querySelector("#category-title")
-    const categoryId = Number(new URLSearchParams(window.location.search).get("category"))
-    const category = await getCategoryById(categoryId)
-    const products = await getAllProducts()
-
-    allProducts = products.filter(p => p.categoryId == categoryId)
+    const titleElement = document.querySelector("#category-title");
+    const container = document.querySelector("#product-list");
     
-    if (category) {
-        title.textContent = category.name
-    }else {
-        title.textContent = "Kategori"
+    const params = new URLSearchParams(window.location.search);
+    const categoryId = params.get("category");
+    const searchQuery = params.get("search");
+
+    const products = await getAllProducts();
+
+    if (searchQuery) {
+        // Arama Modu
+        const query = searchQuery.toLowerCase();
+        allProducts = products.filter(p => p.name.toLowerCase().includes(query));
+        titleElement.textContent = `Arama Sonucu: "${searchQuery}"`;
+    } else if (categoryId) {
+        // Kategori Modu
+        const category = await getCategoryById(Number(categoryId));
+        allProducts = products.filter(p => p.categoryId == Number(categoryId));
+        titleElement.textContent = category ? category.name : "Kategori";
+    } else {
+        // Hiçbiri yoksa tüm ürünleri göster veya hata ver
+        allProducts = products;
+        titleElement.textContent = "Tüm Ürünler";
     }
 
-    renderProducts() //ürünleri ekrana bas
-    setupFilters() //filtre eventlarını başlat
-    renderBrandFilters() //marka checkboxlarını oluştur
+    renderProducts();
+    setupFilters();
+    renderBrandFilters();
 }
+
+// Sayfa yüklendiğinde başlat
+document.addEventListener("DOMContentLoaded", initCategoryPage);
 
 //Ürünleri ekrana basar
 function renderProducts(){
@@ -100,7 +114,7 @@ function setupFilters(){
         renderProducts()
     })
 
-    document.querySelector("#max-price").addEventListener("change", (e) => {
+    document.querySelector("#sort").addEventListener("change", (e) => {
         currentFilters.sort = e.target.value
         renderProducts()
     })
@@ -130,5 +144,3 @@ function renderBrandFilters() {
             renderProducts()
         })
 }
-
-initCategoryPage()
