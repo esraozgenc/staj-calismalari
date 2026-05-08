@@ -25,14 +25,14 @@ export async function login(email, password){
     if(user === undefined){
         return {
             success: false,
-            message: "Kullanıcı bulunamadı lütfen kayıt olun."
+            message: "Kullanıcı bulunamadı. Lütfen kayıt olun."
         }
     }
 
     if(user.password !== password){
         return{
             success: false,
-            message: "Şifreniz yanlış"
+            message: "Şifreniz yanlış."
         }
     }
 
@@ -61,7 +61,7 @@ export async function register(userData){
     if(existingUser !== undefined){
         return{
             success: false,
-            message: "Bu email zaten kayıtlı"
+            message: "Bu email zaten kayıtlı."
         }
     }
     
@@ -101,7 +101,7 @@ export async function getProfile(userId) {
         //kullanıcıyı bul
         const user = users.find(user => user.id == userId)
         if (!user) {
-            return { success: false, message: "Kullanıcı bulunamadı" }
+            return { success: false, message: "Kullanıcı bulunamadı." }
         }
 
         //orders al
