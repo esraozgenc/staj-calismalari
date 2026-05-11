@@ -88,24 +88,24 @@ cardExpiry.addEventListener("input", (e) => {
 // VALIDATION   
 function validatePayment() {
     if (!cardName.value.trim()) {
-        alert("Kart üzerindeki isim boş olamaz")
+        alert("Kart üzerindeki isim boş olamaz!")
         return false
     }
 
     const cleanCardNumber = cardNumber.value.replace(/\s/g, "")
 
     if (!/^\d{16}$/.test(cleanCardNumber)) {
-        alert("Kart numarası 16 haneli olmalı")
+        alert("Kart numarası 16 haneli olmalı!")
         return false
     }
 
     if (!/^\d{2}\/\d{2}$/.test(cardExpiry.value)) {
-        alert("Son kullanma tarihi AA/YY formatında olmalı")
+        alert("Son kullanma tarihi AA/YY formatında olmalı!")
         return false
     }
 
     if (!/^\d{3}$/.test(cardCVV.value)) {
-        alert("CVV 3 haneli olmalı")
+        alert("CVV 3 haneli olmalı!")
         return false
     }
 

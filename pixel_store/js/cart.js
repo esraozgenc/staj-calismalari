@@ -32,7 +32,7 @@ function updateTotal() {
   }, 0);
 
   // Toplamı binlik ayraçla daha güzel göstermek için:
-  totalEl.textContent = "Toplam: " + total.toLocaleString('tr-TR') + "₺";
+  totalEl.innerHTML = `<span>Toplam</span> : <strong>${total.toLocaleString('tr-TR')} ₺</strong>`;
 }
 
 // EVENTS    

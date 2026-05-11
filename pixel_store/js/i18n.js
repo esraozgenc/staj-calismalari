@@ -4,7 +4,7 @@ export async function autoTranslatePage(targetLang) {
     const dictionary = await response.json();
 
     // 2. Sayfadaki tüm metin içerebilecek etiketleri seç
-    const elements = document.querySelectorAll("h1, h2, h3, h4, p, a, span, button, li, input[placeholder]");
+    const elements = document.querySelectorAll("h1, h2, h3, h4, p, a, span, button, li, input[placeholder], label, option, #category-title");
 
     elements.forEach(el => {
         // Input placeholder kontrolü
